@@ -1,0 +1,4 @@
+PokerAI/__pycache__/
+PokerAI/checkpoints/
+PokerAI/poker_env/
+PokerAI/tensorboard_logs/
