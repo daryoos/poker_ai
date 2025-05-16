@@ -2,3 +2,5 @@ PokerAI/__pycache__/
 PokerAI/checkpoints/
 PokerAI/poker_env/
 PokerAI/tensorboard_logs/
+PokerAI/poker_ppo_gen0.zip/
+PokerAI/poker_ppo_gen1.zip/

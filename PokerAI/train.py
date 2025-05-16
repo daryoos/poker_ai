@@ -7,7 +7,7 @@ import pandas as pd
 import os
 
 # Config
-total_timesteps = 2_000_000
+total_timesteps = 350_000 if ppo_gen == 0 else 2_000_000
 model_path = f"poker_ppo_gen{ppo_gen}"
 prev_model_path = f"poker_ppo_gen{ppo_gen - 1}"
 
@@ -58,6 +58,15 @@ if ppo_gen > 0 and os.path.exists(prev_model_path + ".zip"):
         df.to_csv("metrics.csv", mode="a", header=False, index=False)
     else:
         df.to_csv("metrics.csv", index=False)
+elif ppo_gen == 0:
+    # Create placeholder row for Gen 0
+    row = {
+        "generation": 0,
+        "winrate_vs_prev": None,
+        "elo_change": None
+    }
+    df = pd.DataFrame([row])
+    df.to_csv("metrics.csv", index=False)
 
 # Increment generation counter
 increment_generation()
